@@ -8,5 +8,10 @@ sudo -b unshare --pid --fork --mount-proc /lib/systemd/systemd --system-unit=bas
 docker 
 
 docker-compose build
+
 docker-compose up -d
+
 docker-compose down -v
+
+docker-compose up -d --build
+
