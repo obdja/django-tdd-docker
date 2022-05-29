@@ -43,3 +43,5 @@ $ docker-compose exec movies pytest -l
 
 # list the 2 slowest tests
 $ docker-compose exec movies pytest --durations=2
+
+****
