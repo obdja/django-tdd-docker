@@ -67,4 +67,9 @@ postgres://fepurpavnhaziv:b33b83db4759370d9548035a624ea588c9bd4dee460a7357e5c02d
 
 > export DATABASE_URL=postgres://fepurpavnhaziv:b33b83db4759370d9548035a624ea588c9bd4dee460a7357e5c02dbce149b9e5@ec2-3-211-221-185.compute-1.amazonaws.com:5432/d2r16j71bjmdar
 
-> 
+> docker push registry.heroku.com/secret-headland-28614/web:latest
+
+>heroku container:release web --app secret-headland-28614
+
+>heroku run python manage.py migrate --app secret-headland-28614
+>heroku run python manage.py loaddata movies.json --app secret-headland-28614
