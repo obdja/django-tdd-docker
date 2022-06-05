@@ -58,7 +58,7 @@ Creating app... done, ⬢ secret-headland-28614
 https://secret-headland-28614.herokuapp.com/ | https://git.heroku.com/secret-headland-28614.git
 
 >heroku container:login
-
+[](https://secret-headland-28614.herokuapp.com/admin/login/?next%3D%2Fadmin%2F)
 >docker build -f Dockerfile.prod -t registry.heroku.com/secret-headland-28614/web .
 
 >heroku config:get DATABASE_URL --app secret-headland-28614
@@ -73,3 +73,15 @@ postgres://fepurpavnhaziv:b33b83db4759370d9548035a624ea588c9bd4dee460a7357e5c02d
 
 >heroku run python manage.py migrate --app secret-headland-28614
 >heroku run python manage.py loaddata movies.json --app secret-headland-28614
+
+coverage
+
+docker-compose exec movies pytest -p no:warnings --cov=.
+docker-compose exec movies pytest -p no:warnings --cov=. --cov-report html
+
+docker-compose exec movies flake8 .
+docker-compose exec movies black --check --exclude=migrations .
+docker-compose exec movies isort . --check-only
+docker-compose exec movies isort . --diff
+docker-compose exec movies isort .
+
