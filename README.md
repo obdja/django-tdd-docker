@@ -17,6 +17,9 @@ docker-compose up -d --build
 
 docker-compose exec movies pytest
 
+
+
+
 # normal run
 $ docker-compose exec movies pytest
 
@@ -45,3 +48,23 @@ $ docker-compose exec movies pytest -l
 $ docker-compose exec movies pytest --durations=2
 
 ****
+
+
+>>> heroku --version
+
+>heroku create
+
+Creating app... done, ⬢ secret-headland-28614
+https://secret-headland-28614.herokuapp.com/ | https://git.heroku.com/secret-headland-28614.git
+
+>heroku container:login
+
+>docker build -f Dockerfile.prod -t registry.heroku.com/secret-headland-28614/web .
+
+>heroku config:get DATABASE_URL --app secret-headland-28614
+
+postgres://fepurpavnhaziv:b33b83db4759370d9548035a624ea588c9bd4dee460a7357e5c02dbce149b9e5@ec2-3-211-221-185.compute-1.amazonaws.com:5432/d2r16j71bjmdar
+
+> export DATABASE_URL=postgres://fepurpavnhaziv:b33b83db4759370d9548035a624ea588c9bd4dee460a7357e5c02dbce149b9e5@ec2-3-211-221-185.compute-1.amazonaws.com:5432/d2r16j71bjmdar
+
+> 
